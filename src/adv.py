@@ -109,3 +109,21 @@ while True:
     elif playerMove == 'q':
         print('----- Goodbye and thanks for playing -----')
         exit()
+
+
+# NOTES
+# GUIDED SOLUTION FROM THE LECTURE
+
+# player = Player(input("What is your name? "), room['outside'])
+# print(f"Hello, {player.name}.")
+# print(player.current_room)
+# while True:
+#     cmd = input("-> ").lower()
+#     if cmd in ["n", "s", "e", "w"]:
+#         # Move to that room
+#         player.travel(cmd)
+#     elif cmd == "q":
+#         print("Goodbye!")
+#         exit()
+#     else:
+#         print("I did not understand that command.")
