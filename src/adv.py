@@ -79,3 +79,31 @@ while True:
     playerMove = input(
         'Select the direction you would like to go \n [ n for North ] \t [ w for West ] \n [ s for South ] \t [ e for East ] \n \t Press q to cancel the game \nType Selection => '
     )
+
+    if playerMove == 'n':
+        if location.n_to != 0:
+            print(f'Your new location is {location}')
+        else:
+            print (f'Invalid direction, please select a different move')
+
+    elif playerMove == 's':
+        if location.s_to != 0:
+            print(f'You are now in the {location}')
+        else:
+            print (f'Invalid direction, please select a different move')
+
+    elif playerMove == 'w':
+        if location.w_to != 0:
+            print(f'You have switched locations to the {location}')
+        else:
+            print (f'Invalid direction, please select a different move')
+
+    elif playerMove == 'e':
+        if location.e_to != 0:
+            print(f'You just moved to the {location}')
+        else:
+            print (f'Invalid direction, please select a different move')
+
+    elif playerMove == 'q':
+        print ('----- Goodbye and thanks for playing -----')
+        exit()
