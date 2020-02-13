@@ -59,6 +59,11 @@ player = Player(
     )
 )
 
+playerName = player.name
+location = player.current_room
+
+print(f"Hello Agent {playerName}!, your current location is the {location}")
+
 # Write a loop that:
 #
 # * Prints the current room name
