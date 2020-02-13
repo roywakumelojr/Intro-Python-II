@@ -62,7 +62,7 @@ player = Player(
 playerName = player.name
 location = player.current_room
 
-print(f"Hello Agent {playerName}!, your current location is the {location}")
+print(f'Hello Agent {playerName}!, your current location is the {location}')
 
 # Write a loop that:
 #
@@ -74,3 +74,8 @@ print(f"Hello Agent {playerName}!, your current location is the {location}")
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+while True:
+    playerMove = input(
+        'Select the direction you would like to go \n [ n for North ] \t [ w for West ] \n [ s for South ] \t [ e for East ] \n \t Press q to cancel the game \nType Selection => '
+    )
