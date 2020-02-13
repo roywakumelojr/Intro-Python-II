@@ -80,24 +80,28 @@ while True:
 
     if playerMove == 'n':
         if location.n_to != 0:
+            location = location.n_to
             print(f'Your new location is {location}')
         else:
             print(f'Invalid direction, please select a different move')
 
     elif playerMove == 's':
         if location.s_to != 0:
+            location = location.s_to
             print(f'You are now in the {location}')
         else:
             print(f'Invalid direction, please select a different move')
 
     elif playerMove == 'w':
         if location.w_to != 0:
+            location = location.w_to
             print(f'You have switched locations to the {location}')
         else:
             print(f'Invalid direction, please select a different move')
 
     elif playerMove == 'e':
         if location.e_to != 0:
+            location = location.e_to
             print(f'You just moved to the {location}')
         else:
             print(f'Invalid direction, please select a different move')
