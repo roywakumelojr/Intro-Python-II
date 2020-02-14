@@ -10,11 +10,25 @@ class Room:
         self.s_to = s_to
         self.e_to = e_to
         self.w_to = w_to
+        self.item = []
 
     def __str__(self):
-        info = f'{self.name}: {self.description}'
+        info = f'{self.name}: {self.description}: {self.item}'
         return info
 
+    def add_item(self, item):
+        self.item.append(item)
+
+    def remove_item(self, item):
+        self.item.remove(item)
+
+    def list_item(self, item):
+        if len(self.item) > 0:
+            print('Room items: ')
+            for i in self.item:
+                print(i.name)
+        else:
+            print('This room does not contain any items')
 
 # NOTES
 # GUIDED SOLUTION FROM THE LECTURE
