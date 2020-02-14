@@ -6,7 +6,21 @@ class Player:
     def __init__(self, name, current_room):
         self.name = name
         self.current_room = current_room
+        self.item = []
 
+    def on_take(self, item):
+        self.item.append(item)
+        
+    def on_drop(self, item):
+        self.item.remove(item)
+
+    def list_items(self, item):
+        if len(self.item) > 0:
+            print('Inventory: ')
+            for i in self.item:
+                print(i)
+        else:
+            print('You currently do not have any items')
 
 # NOTES
 # GUIDED SOLUTION FROM THE LECTURE
