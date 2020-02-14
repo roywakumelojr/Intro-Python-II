@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -47,6 +48,12 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+# Linking items to rooms
+room['outside'].item.append("key")
+room['foyer'].item.append("pen")
+room['narrow'].item.append("stick")
+room['treasure'].item.append("cellphone")
+
 #
 # Main
 #
@@ -60,7 +67,9 @@ player = Player(
 playerName = player.name
 location = player.current_room
 
-print(f'Hello Agent {playerName}!, your current location is the {location}')
+
+print(
+    f'\nHello Agent {playerName}!, your current location is the {location}.')
 
 # Write a loop that:
 #
@@ -75,36 +84,45 @@ print(f'Hello Agent {playerName}!, your current location is the {location}')
 
 while True:
     playerMove = input(
-        'Select the direction you would like to go \n [ n for North ] \t [ w for West ] \n [ s for South ] \t [ e for East ] \n \t Press q to cancel the game \nType Selection => '
+        '\n Select the direction you would like to go \n \n [ n for North ] \t [ w for West ] \n [ s for South ] \t [ e for East ] \n \n [ Type "get" to pick up aan item ] \n [ Type "drop" to drop an item ] \n \n \t Press q to cancel the game \n \nType Selection => '
     )
 
     if playerMove == 'n':
         if location.n_to != 0:
             location = location.n_to
-            print(f'Your new location is {location}')
+            print(
+                f'\nYour new location is {location}')
         else:
-            print(f'Invalid direction, please select a different move')
+            print(f'\nInvalid direction, please select a different move')
 
     elif playerMove == 's':
         if location.s_to != 0:
             location = location.s_to
-            print(f'You are now in the {location}')
+            print(f'\nYou are now in the {location}')
         else:
-            print(f'Invalid direction, please select a different move')
+            print(f'\nInvalid direction, please select a different move')
 
     elif playerMove == 'w':
         if location.w_to != 0:
             location = location.w_to
-            print(f'You have switched locations to the {location}')
+            print(f'\nYou have switched locations to the {location}')
         else:
-            print(f'Invalid direction, please select a different move')
+            print(f'\nInvalid direction, please select a different move')
 
     elif playerMove == 'e':
         if location.e_to != 0:
             location = location.e_to
-            print(f'You just moved to the {location}')
+            print(f'\nYou just moved to the {location}')
         else:
-            print(f'Invalid direction, please select a different move')
+            print(f'\nInvalid direction, please select a different move')
+
+    elif playerMove == 'get':
+        print(f'\nYou have successfully picked up the item')
+        player.on_take(playerMove)
+
+    elif playerMove == 'drop':
+        print(f'\nThe item has been dropped')
+        player.current_room.add_item(playerMove)
 
     elif playerMove == 'q':
         print('----- Goodbye and thanks for playing -----')
